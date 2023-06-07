@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://brmix526m2tx5"]
+
+[ext_resource type="Texture2D" uid="uid://bxmovccm4hiwv" path="res://Mob Saco de lixo/lixo.png" id="1_xxegk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lucxe"]
+radius = 20.0
+height = 44.0
+
+[node name="Mob" type="CharacterBody2D"]
+metadata/_edit_group_ = true
+
+[node name="Lixo" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, -31)
+scale = Vector2(0.925, 0.9)
+texture = ExtResource("1_xxegk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_lucxe")

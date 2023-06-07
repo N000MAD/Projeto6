@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhl48r8si3f3a"]
+
+[ext_resource type="Script" path="res://Tartaruga/Tartaruga.cs" id="1_6mmxj"]
+[ext_resource type="Texture2D" uid="uid://b8l2ajgxpq7q1" path="res://Tartaruga/tatauga_esticada.png" id="1_nuwm6"]
+[ext_resource type="Texture2D" uid="uid://bfvigsnbii7mr" path="res://Tartaruga/tatauga_nada.png" id="2_4m3xr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e0ay7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nuwm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4m3xr")
+}],
+"loop": true,
+"name": &"Nadando",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5jvtb"]
+radius = 30.0
+height = 96.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c4of7"]
+radius = 30.0
+height = 98.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(208, 321)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_6mmxj")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(14.25, 17.5)
+scale = Vector2(0.329167, 0.325)
+sprite_frames = SubResource("SpriteFrames_e0ay7")
+animation = &"Nadando"
+frame_progress = 0.686462
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15, 24)
+shape = SubResource("CapsuleShape2D_5jvtb")
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(15, 24)
+shape = SubResource("CapsuleShape2D_c4of7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

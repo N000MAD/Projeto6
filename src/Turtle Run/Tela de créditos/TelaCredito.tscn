@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dondr0lctvpx4"]
+
+[ext_resource type="Script" path="res://Tela de créditos/TelaCredit.cs" id="1_n2rvt"]
+[ext_resource type="Texture2D" uid="uid://ub2goly8oou2" path="res://Tela de créditos/Tela de créditos.png" id="2_adj1f"]
+
+[node name="Créditos" type="Node2D"]
+script = ExtResource("1_n2rvt")
+
+[node name="TelaDeCréditos" type="Sprite2D" parent="."]
+position = Vector2(242, 357.5)
+scale = Vector2(0.247917, 0.660185)
+texture = ExtResource("2_adj1f")
+
+[node name="BtVoltar" type="Button" parent="."]
+offset_left = 13.0
+offset_top = 567.0
+offset_right = 477.0
+offset_bottom = 676.0
+text = "Voltar"
+
+[connection signal="pressed" from="BtVoltar" to="." method="_on_bt_voltar_pressed"]

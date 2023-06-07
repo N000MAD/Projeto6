@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=3 uid="uid://byhatgrsoyoiu"]
+
+[ext_resource type="Script" path="res://Main/principal.cs" id="1_leyr5"]
+[ext_resource type="PackedScene" uid="uid://dhl48r8si3f3a" path="res://Tartaruga/Tartaruga.tscn" id="1_pa7jn"]
+[ext_resource type="Texture2D" uid="uid://dwbdxexwfmfed" path="res://Tela de início/the-bottom-of-the-sea-ged2766c24_1280.jpg" id="1_ry4sj"]
+[ext_resource type="Texture2D" uid="uid://bou217r7dqkqd" path="res://Main/Fundo fase.png" id="2_tgump"]
+[ext_resource type="PackedScene" uid="uid://draex6d1w4tx1" path="res://Mob/Mob.tscn" id="4_6brbt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lw7vi"]
+size = Vector2(90, 973)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51k5u"]
+size = Vector2(2044.5, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1qd4g"]
+size = Vector2(105, 944.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nom7d"]
+size = Vector2(1010.5, 166)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_leyr5")
+metadata/_edit_horizontal_guides_ = []
+metadata/_edit_vertical_guides_ = []
+
+[node name="FundoFase" type="Sprite2D" parent="."]
+position = Vector2(242, 357)
+texture = ExtResource("2_tgump")
+
+[node name="The-bottom-of-the-sea-ged2766c241281" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(240, 346.25)
+scale = Vector2(0.375, 0.819664)
+texture = ExtResource("1_ry4sj")
+
+[node name="The-bottom-of-the-sea-ged2766c241280" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(245.5, 358.5)
+scale = Vector2(0.383594, 0.760252)
+texture = ExtResource("1_ry4sj")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_pa7jn")]
+position = Vector2(220, 329)
+
+[node name="Timer Mobs" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Timer Pontos" type="Timer" parent="."]
+
+[node name="Timer Começo" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("4_6brbt")]
+position = Vector2(235, -136)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 162.0
+offset_top = 8.0
+offset_right = 282.0
+offset_bottom = 46.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center] SCORE"
+autowrap_mode = 2
+tab_size = 10
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-139, 305)
+shape = SubResource("RectangleShape2D_lw7vi")
+one_way_collision = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(297, -249)
+shape = SubResource("RectangleShape2D_51k5u")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(-90, -6)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(716.5, 293.75)
+shape = SubResource("RectangleShape2D_1qd4g")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(3, 0)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(419.75, 864)
+shape = SubResource("RectangleShape2D_nom7d")
+
+[connection signal="timeout" from="Timer Mobs" to="." method="_on_timer_mobs_timeout"]

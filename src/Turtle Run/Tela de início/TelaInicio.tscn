@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgvluy2cix3b8"]
+
+[ext_resource type="Script" path="res://Tela de início/TelaInicio.cs" id="1_60nkq"]
+[ext_resource type="Texture2D" uid="uid://dwbdxexwfmfed" path="res://Tela de início/the-bottom-of-the-sea-ged2766c24_1280.jpg" id="2_lv4la"]
+[ext_resource type="Texture2D" uid="uid://uqc0wbb8cs44" path="res://Tela de início/Botão start.png" id="3_hvn18"]
+[ext_resource type="Texture2D" uid="uid://dnvo2ggr22i0w" path="res://Tela de início/Botão Créditos.png" id="4_yv45r"]
+
+[node name="Inicio" type="Node2D"]
+script = ExtResource("1_60nkq")
+
+[node name="The-bottom-of-the-sea-ged2766c241280" type="Sprite2D" parent="."]
+position = Vector2(242.5, 360)
+scale = Vector2(0.374219, 0.761304)
+texture = ExtResource("2_lv4la")
+
+[node name="BtStart" type="Button" parent="."]
+offset_left = 130.0
+offset_top = 275.0
+offset_right = 360.0
+offset_bottom = 368.0
+icon = ExtResource("3_hvn18")
+flat = true
+
+[node name="BtCredi" type="Button" parent="."]
+offset_left = 174.0
+offset_top = 397.0
+offset_right = 329.0
+offset_bottom = 454.0
+icon = ExtResource("4_yv45r")
+flat = true
+
+[connection signal="pressed" from="BtStart" to="." method="_on_bt_start_pressed"]
+[connection signal="pressed" from="BtCredi" to="." method="_on_bt_credi_pressed"]
