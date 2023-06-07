@@ -1,5 +1,6 @@
 # FECAP - Fundação de Comércio Álvares Penteado
-
+# Projeto6
+Projeto 6
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
@@ -372,5 +373,4 @@ A cada atualização os detalhes devem ser lançados aqui.
 Aqui estão as referências usadas no projeto.
 <<<<<<< Updated upstream
 =======
->>>>>>> cd2538b4b91ddc663764126067c8a3f828b80062
->>>>>>> Stashed changes
+>>>>>>> 
